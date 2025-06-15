@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Button,
     FormControl,
@@ -9,25 +9,60 @@ import {
     TextField,
     Typography,
     Snackbar,
+    Checkbox,
+    FormControlLabel,
+    LinearProgress,
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import movie from "../../assets/wallpaper4.jpg";
 
 export default function Login() {
     const [email, setEmail] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
     const [password, setPassword] = useState("");
     const [snackbarMessage, setSnackbarMessage] = useState("");
     const [showSnackbar, setShowSnackbar] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
+    const [passwordStrength, setPasswordStrength] = useState(0);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const savedDarkMode = localStorage.getItem("darkMode") === "true";
+        const savedEmail = localStorage.getItem("rememberedEmail");
+        if (savedEmail) {
+            setEmail(savedEmail);
+            setRememberMe(true);
+        }
+        setDarkMode(savedDarkMode);
+    }, []);
+
+    const handleToggleDarkMode = () => {
+        setDarkMode((prev) => {
+            localStorage.setItem("darkMode", !prev);
+            return !prev;
+        });
+    };
+
+    const handlePasswordChange = (value) => {
+        setPassword(value);
+        if (value.length >= 8 && /[A-Z]/.test(value) && /\d/.test(value)) {
+            setPasswordStrength(2);
+        } else if (value.length >= 6) {
+            setPasswordStrength(1);
+        } else {
+            setPasswordStrength(0);
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,10 +79,10 @@ export default function Login() {
             return;
         }
 
-        if (password.length < 4) {
-            setSnackbarMessage("Password must be at least 4 characters.");
-            setShowSnackbar(true);
-            return;
+        if (rememberMe) {
+            localStorage.setItem("rememberedEmail", email);
+        } else {
+            localStorage.removeItem("rememberedEmail");
         }
 
         setLoading(true);
@@ -59,15 +94,37 @@ export default function Login() {
             localStorage.setItem("token", res.data.token);
             navigate("/home");
         } catch (error) {
-            if (error.response?.status === 401) {
-                setSnackbarMessage("Invalid credentials.");
-            } else {
-                setSnackbarMessage("Login failed. Please try again.");
-            }
+            setSnackbarMessage(
+                error.response?.status === 401
+                    ? "Invalid credentials."
+                    : "Login failed. Please try again."
+            );
             setShowSnackbar(true);
             setPassword("");
         } finally {
             setLoading(false);
+        }
+    };
+
+    const getStrengthColor = () => {
+        switch (passwordStrength) {
+            case 2:
+                return "success";
+            case 1:
+                return "warning";
+            default:
+                return "error";
+        }
+    };
+
+    const getStrengthLabel = () => {
+        switch (passwordStrength) {
+            case 2:
+                return "Strong";
+            case 1:
+                return "Medium";
+            default:
+                return "Weak";
         }
     };
 
@@ -79,13 +136,16 @@ export default function Login() {
             {/* Background Overlay */}
             <div
                 className={`absolute inset-0 transition-colors duration-700 pointer-events-none z-0 ${
-                    darkMode ? "bg-white/30" : "bg-black/40"
+                    darkMode ? "bg-white/40" : "bg-black/40"
                 }`}
             />
 
             {/* Theme Toggle */}
             <div className="absolute top-4 right-4 z-20">
-                <IconButton onClick={() => setDarkMode((prev) => !prev)} className="bg-white/80 rounded-full shadow">
+                <IconButton
+                    onClick={handleToggleDarkMode}
+                    className="bg-white/80 rounded-full shadow"
+                >
                     {darkMode ? (
                         <LightModeIcon className="text-yellow-500" />
                     ) : (
@@ -129,16 +189,14 @@ export default function Login() {
                         <OutlinedInput
                             type={showPassword ? "text" : "password"}
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => handlePasswordChange(e.target.value)}
                             style={{ color: darkMode ? "#fff" : "#000" }}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
                                         onClick={() => setShowPassword((prev) => !prev)}
                                         edge="end"
-                                        sx={{
-                                            color: darkMode ? "#fff" : "#000", // ✅ FIX: icon color based on theme
-                                        }}
+                                        sx={{ color: darkMode ? "#fff" : "#000" }}
                                     >
                                         {showPassword ? <VisibilityOff /> : <Visibility />}
                                     </IconButton>
@@ -147,6 +205,42 @@ export default function Login() {
                             label="Password"
                         />
                     </FormControl>
+
+                    {/* Password Strength Bar */}
+                    {password && (
+                        <div className="mt-[-12px]">
+                            <LinearProgress
+                                variant="determinate"
+                                value={(passwordStrength + 1) * 33}
+                                color={getStrengthColor()}
+                            />
+                            <Typography variant="caption" className="mt-1">
+                                Strength: {getStrengthLabel()}
+                            </Typography>
+                        </div>
+                    )}
+
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={rememberMe}
+                                onChange={(e) => setRememberMe(e.target.checked)}
+                                sx={{ color: darkMode ? "#ccc" : undefined }}
+                            />
+                        }
+                        label="Remember Me"
+                    />
+
+                    <div className="text-right">
+                        <Link
+                            to="/forgot-password"
+                            className={`text-sm ${
+                                darkMode ? "text-blue-300" : "text-blue-600"
+                            } underline`}
+                        >
+                            Forgot password?
+                        </Link>
+                    </div>
 
                     <Button
                         type="submit"
@@ -163,6 +257,40 @@ export default function Login() {
                         {loading ? "Logging in..." : "Login"}
                     </Button>
                 </form>
+
+                {/* OR Divider */}
+                <div className="flex items-center my-4">
+                    <div className="flex-grow border-t border-gray-300" />
+                    <span className="mx-3 text-sm text-gray-500">OR</span>
+                    <div className="flex-grow border-t border-gray-300" />
+                </div>
+
+                {/* Social Login Buttons (UI Only) */}
+                <div className="flex flex-col gap-3">
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        startIcon={<GoogleIcon />}
+                        sx={{
+                            color: darkMode ? "#fff" : "#000",
+                            borderColor: darkMode ? "#555" : "#ccc",
+                        }}
+                    >
+                        Login with Google
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        startIcon={<FacebookIcon />}
+                        sx={{
+                            color: darkMode ? "#fff" : "#000",
+                            borderColor: darkMode ? "#555" : "#ccc",
+                        }}
+                    >
+                        Login with Facebook
+                    </Button>
+                </div>
+                <br/>
 
                 <Typography variant="body2" align="center" className="mt-6">
                     Don't have an account?
