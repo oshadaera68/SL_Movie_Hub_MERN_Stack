@@ -23,7 +23,7 @@ export default function NotFound() {
                 />
                 <h1
                     className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
-                    style={{ fontFamily: "Edu NSW ACT Hand Pre" }}
+                    style={{ fontFamily: "Open Sans" }}
                 >
                     Page not found!
                 </h1>
