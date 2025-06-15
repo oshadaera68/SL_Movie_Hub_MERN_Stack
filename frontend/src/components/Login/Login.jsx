@@ -73,8 +73,11 @@ export default function Login() {
             return;
         }
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            setSnackbarMessage("Invalid email format.");
+        const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isUsername = /^[a-zA-Z0-9_.-]{3,}$/.test(email); // simple username rule
+
+        if (!isEmail && !isUsername) {
+            setSnackbarMessage("Enter a valid email or username (at least 3 characters).");
             setShowSnackbar(true);
             return;
         }
@@ -133,14 +136,12 @@ export default function Login() {
             className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center transition-all"
             style={{ backgroundImage: `url(${movie})` }}
         >
-            {/* Background Overlay */}
             <div
                 className={`absolute inset-0 transition-colors duration-700 pointer-events-none z-0 ${
                     darkMode ? "bg-white/40" : "bg-black/40"
                 }`}
             />
 
-            {/* Theme Toggle */}
             <div className="absolute top-4 right-4 z-20">
                 <IconButton
                     onClick={handleToggleDarkMode}
@@ -154,18 +155,19 @@ export default function Login() {
                 </IconButton>
             </div>
 
-            {/* Login Card */}
             <div
                 className={`relative z-10 w-full max-w-md p-8 mx-4 rounded-xl shadow-xl transition-all duration-700 ${
                     darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
                 }`}
             >
-                <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
+                <h1 className="text-3xl font-bold mb-6 text-center" style={{ fontFamily: "Open Sans" }}>
+                    Login
+                </h1>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <TextField
                         required
-                        label="Email"
+                        label="Email or Username"
                         fullWidth
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -181,6 +183,7 @@ export default function Login() {
                             },
                         }}
                     />
+
 
                     <FormControl variant="outlined" fullWidth required>
                         <InputLabel style={{ color: darkMode ? "#ccc" : "#000" }}>
@@ -206,7 +209,6 @@ export default function Login() {
                         />
                     </FormControl>
 
-                    {/* Password Strength Bar */}
                     {password && (
                         <div className="mt-[-12px]">
                             <LinearProgress
@@ -249,23 +251,19 @@ export default function Login() {
                         disabled={loading}
                         sx={{
                             bgcolor: darkMode ? "#1976d2" : undefined,
-                            "&:hover": {
-                                bgcolor: darkMode ? "#1565c0" : undefined,
-                            },
+                            "&:hover": { bgcolor: darkMode ? "#1565c0" : undefined },
                         }}
                     >
                         {loading ? "Logging in..." : "Login"}
                     </Button>
                 </form>
 
-                {/* OR Divider */}
                 <div className="flex items-center my-4">
                     <div className="flex-grow border-t border-gray-300" />
                     <span className="mx-3 text-sm text-gray-500">OR</span>
                     <div className="flex-grow border-t border-gray-300" />
                 </div>
 
-                {/* Social Login Buttons (UI Only) */}
                 <div className="flex flex-col gap-3">
                     <Button
                         variant="outlined"
@@ -290,16 +288,15 @@ export default function Login() {
                         Login with Facebook
                     </Button>
                 </div>
-                <br/>
+
+                <br />
 
                 <Typography variant="body2" align="center" className="mt-6">
                     Don't have an account?
                     <br />
                     <Link
                         to="/register"
-                        className={`underline ${
-                            darkMode ? "text-blue-300" : "text-blue-600"
-                        }`}
+                        className={`underline ${darkMode ? "text-blue-300" : "text-blue-600"}`}
                     >
                         Sign up
                     </Link>
