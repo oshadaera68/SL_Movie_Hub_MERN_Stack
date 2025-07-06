@@ -4,6 +4,8 @@ import Homepage from "./components/Homepage/Homepage";
 import Register from "./components/Register/Register";
 import NotFound from "./components/NotFound/NotFound";
 import UploadForm from "./components/UploadForm/UploadForm";
+import AboutUs from "./components/AboutUs/AboutUs";
+import MovieDetail from "./components/MovieDetails/MovieDetails";
 
 
 export default function App() {
@@ -15,7 +17,9 @@ export default function App() {
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/upload" element={<UploadForm/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/about" element={<AboutUs/>}/>
                 <Route path="*" element={<NotFound/>}/>
+                <Route path="/movie/:id" element={<MovieDetail darkMode={true} />} />
             </Routes>
         </Router>
 
