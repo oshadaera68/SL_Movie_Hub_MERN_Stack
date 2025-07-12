@@ -66,8 +66,9 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                         {movie.title} :{" "}
                         <span className="text-red-500">සිංහල උපසිරැසි සහිතව</span>
                     </h1>
+                    <p className="text-sm text-gray-500 mb-2">Video Copy: {movie.videoCopy}</p>
 
-                    <p className="text-sm text-gray-400 mb-2">Language: {movie.language}</p>
+                    <p className="text-sm text-gray-500 mb-2">Language: {movie.language || "Unknown"}</p>
 
                     {movie.altTitle && (
                         <h2 className="text-lg italic mb-4 text-gray-300">{movie.altTitle}</h2>
@@ -91,7 +92,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                                 rel="noopener noreferrer"
                                 className="text-red-500 hover:underline break-all"
                             >
-                                {movie.subtitleWebsite}
+                                {movie.subtitleWebsite || "Unknown"}
                             </a>
                         ) : (
                             <p className="text-gray-400">Not provided</p>
@@ -110,7 +111,6 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                             fontSize: "1rem",
                             px: 4,
                         }}
-                        disabled={!movie.subtitleDownloadLink}
                     >
                         Download Subtitle
                     </Button>

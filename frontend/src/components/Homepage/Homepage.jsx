@@ -43,7 +43,6 @@ export default function LandingPage() {
                         </Button>
                         <Menu anchorEl={anchorElGenres} open={openGenres} onClose={handleCloseGenres}>
                             <MenuItem onClick={handleCloseGenres}>Action</MenuItem>
-                            <MenuItem onClick={handleCloseGenres}>Romance</MenuItem>
                             <MenuItem onClick={handleCloseGenres}>Thriller</MenuItem>
                             <MenuItem onClick={handleCloseGenres}>Horror</MenuItem>
                         </Menu>
@@ -58,8 +57,6 @@ export default function LandingPage() {
                             Languages
                         </Button>
                         <Menu anchorEl={anchorElLangs} open={openLangs} onClose={handleCloseLangs}>
-                            <MenuItem onClick={handleCloseLangs}>English</MenuItem>
-                            <MenuItem onClick={handleCloseLangs}>Tamil</MenuItem>
                             <MenuItem onClick={handleCloseLangs}>Malayalam</MenuItem>
                             <MenuItem onClick={handleCloseLangs}>Telugu</MenuItem>
                         </Menu>
