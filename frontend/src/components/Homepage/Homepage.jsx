@@ -5,16 +5,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import TextField from "@mui/material/TextField";
 import {ChevronRight} from "lucide-react";
 import {Link} from "react-router-dom";
-import MovieData from "../../data/MovieData";
+import LoadMovies from "../Duplicate/LoadMovies/LoadMovies";
 
 export default function LandingPage() {
     const [darkMode, setDarkMode] = useState(true);
     const [anchorElGenres, setAnchorElGenres] = useState(null);
     const [anchorElLangs, setAnchorElLangs] = useState(null);
-    const [searchTerm, setSearchTerm] = useState("");
 
     const openGenres = Boolean(anchorElGenres);
     const openLangs = Boolean(anchorElLangs);
@@ -24,8 +22,6 @@ export default function LandingPage() {
 
     const handleOpenLangs = (e) => setAnchorElLangs(e.currentTarget);
     const handleCloseLangs = () => setAnchorElLangs(null);
-
-    const filteredMovies = MovieData.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (<div
             className={`min-h-screen flex flex-col justify-between ${darkMode ? "bg-black text-white" : "bg-white text-black"}`}>
@@ -68,8 +64,8 @@ export default function LandingPage() {
                             <MenuItem onClick={handleCloseLangs}>Telugu</MenuItem>
                         </Menu>
                     </li>
-                    <li className="cursor-pointer hover:underline">About Us</li>
-                    <li className="cursor-pointer hover:underline">Upload</li>
+                    <Link to="/about"><li className="cursor-pointer hover:underline">About Us</li></Link>
+                    <Link to="/upload"><li className="cursor-pointer hover:underline">Upload</li></Link>
                     <Link to="/login">
                         <li className="cursor-pointer hover:underline">Log In</li>
                     </Link>
@@ -122,7 +118,7 @@ export default function LandingPage() {
                 {/* Movie Section */}
                 <section className="px-6 py-10">
                     <div className="flex justify-between items-center mb-6">
-                        <h3 className="text-xl font-semibold">New Movie Updates</h3>
+                        <h3 className="text-xl font-semibold">New Releases</h3>
                         <Button
                             variant="contained"
                             color="error"
@@ -136,49 +132,8 @@ export default function LandingPage() {
                         </Button>
                     </div>
 
-                    {/* Search bar */}
-                    <div className="mb-4 max-w-sm">
-                        <TextField
-                            label="Search Movies"
-                            variant="outlined"
-                            size="small"
-                            fullWidth
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            sx={{
-                                input: {color: darkMode ? "white" : "black"},
-                                label: {color: darkMode ? "white" : "black"},
-                                "& .MuiOutlinedInput-root": {
-                                    "& fieldset": {
-                                        borderColor: darkMode ? "white" : "black",
-                                    }, "&:hover fieldset": {
-                                        borderColor: darkMode ? "red" : "gray",
-                                    },
-                                },
-                            }}
-                        />
-                    </div>
-
-                    <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
-                        {filteredMovies.length > 0 ? (filteredMovies.map((movie, index) => {
-                                const movieIndex = MovieData.findIndex((m) => m.title === movie.title); // Get real index from original array
-                                return (<Link key={index} to={`/movie/${movieIndex}`} className="no-underline">
-                                        <div
-                                            className={`${darkMode ? "bg-zinc-800" : "bg-gray-200"} rounded-xl overflow-hidden shadow-md min-w-[150px] max-w-[150px]`}
-                                        >
-                                            <img
-                                                src={movie.image}
-                                                alt={movie.title}
-                                                className="w-full h-[225px] object-cover"
-                                            />
-                                            <div className="p-2">
-                                                <p className="text-sm font-medium truncate">{movie.title}</p>
-                                                <p className="text-xs text-gray-500">{movie.date}</p>
-                                                <p className="text-[10px] text-gray-400 italic">{movie.language}</p>
-                                            </div>
-                                        </div>
-                                    </Link>);
-                            })) : (<p>No movies found.</p>)}
-                    </div>
+                    {/*add the loaded movies*/}
+                    <LoadMovies/>
 
                     <br/><br/> <br/>
 

@@ -9,13 +9,24 @@ const movieData = [{
     date: "May 31, 2025",
     image: "https://pbs.twimg.com/media/Gt3MdqqWoAAei0I?format=jpg&name=large",
     language: "Telugu",
-    altTitle: "Ghatikachalam (2025) - මනෝ ආත්ම", // eslint-disable-next-line no-useless-concat
-    description: "කෞෂික් කියන්නේ වෛද්‍ය සිසුවෙක්. හැබැයි මෙයා බයගුල්ලෙක්. (අමු බයගුල්ලෙක් නම් නෙවෙයි හැබැයි.) හැබැයි මෙයා ජීවත් වෙන්නේ හැදෙන්නේ තමන්ගේ දෙමාපියන් යන විදිහට (ටිකක් මං වගේ හැබැයි. ගොඩක්ම නෙවෙයි.).\n" + "\n" + "එයාගේ තාත්තා තමයි කෞෂික්ගේ රස්සාව පවා තීරණය කලෙත්. අම්මා තමයි එයාගේ කෑම තීරණය කලේ. කොහොමින් හරි කාලයක් යද්දී මෙයාගේ මානසික මට්ටමත් පහලට වැටෙද්දී මෙයාට ඇහෙනවා කෙනෙක් තමන්ට විධානයක් දෙනවා වගේ දෙයක්. මුලින් මුලින් පොඩියට විධාන දීලා පස්සේ පස්සේ ලොකු විධාන දෙන්න ගන්නවා..\n" + "\n" + "කවුද මේ විධාන දෙන කෙනා..?\n" + "ඇයි මෙයාට එහෙම වද දෙන්නේ?\n" + "ඇත්තටම කෞෂික්ට මොකක්ද වෙලා තියෙන්නේ?\n" + "එයාගේ දෙමාපියෝ එයාගේ වෙනසට මොකක්ද කරන්නේ?\n" + "\n" + "මේවට උත්තර හොයන්න නම් ෆිල්ම් එක බලලම දැනගන්න වෙයි…",
+    altTitle: "Ghatikachalam (2025) - මනෝ ආත්ම",
+    description: "කෞෂික් කියන්නේ වෛද්‍ය සිසුවෙක්. හැබැයි මෙයා බයගුල්ලෙක්. (අමු බයගුල්ලෙක් නම් නෙවෙයි හැබැයි.) හැබැයි මෙයා ජීවත් වෙන්නේ හැදෙන්නේ තමන්ගේ දෙමාපියන් යන විදිහට (ටිකක් මං වගේ හැබැයි. ගොඩක්ම නෙවෙයි.).\n එයාගේ තාත්තා තමයි කෞෂික්ගේ රස්සාව පවා තීරණය කලෙත්. අම්මා තමයි එයාගේ කෑම තීරණය කලේ. කොහොමින් හරි කාලයක් යද්දී මෙයාගේ මානසික මට්ටමත් පහලට වැටෙද්දී මෙයාට ඇහෙනවා කෙනෙක් තමන්ට විධානයක් දෙනවා වගේ දෙයක්. මුලින් මුලින් පොඩියට විධාන දීලා පස්සේ පස්සේ ලොකු විධාන දෙන්න ගන්නවා..\n කවුද මේ විධාන දෙන කෙනා..?\n ඇයි මෙයාට එහෙම වද දෙන්නේ?\n ඇත්තටම කෞෂික්ට මොකක්ද වෙලා තියෙන්නේ?\n එයාගේ දෙමාපියෝ එයාගේ වෙනසට මොකක්ද කරන්නේ?\n මේවට උත්තර හොයන්න නම් ෆිල්ම් එක බලලම දැනගන්න වෙයි…",
     subtitleBy: "ඕෂද එරංග (Era Boy)",
     subtitleWebsite: "cineru.lk",
     subtitleDownloadLink: "https://cineru.lk/ghatikachalam-2025-sinhala-sub/"
 }, {
     id: 1,
+    title: "Narivetta",
+    date: "May 23, 2025",
+    image: "https://assetscdn1.paytm.com/images/cinema/Naviretta--Gallery-e50ad8a0-2a57-11f0-b430-0d9e8fb460e2.jpg",
+    language: "Malayalam",
+    altTitle: "Narivetta (2025) - දඩයක් කරුවා සහ දඩයම",
+    description: "කතාවට ගියොත් වාගීස් නම් තරුණයා හොඳ රැකියාවක් අපේක්ෂාවෙන් සිටින තරුණයෙක්, ඔහුට රැකියා කිහිපයක් ලැබුනත් ඊට වඩා ඉහල රැකියාවක් අපේක්ෂාවෙන් සිටීම නිසා නිතරම සිය මවගේ මෙන්ම පෙම්වතියගේ විවේචනයට ලක් වෙනවා. අවසානයේ ඔහුට ඒ සියල්ල පසෙක තබා  පොලිස් කොස්තාපල් තනතුරකට  යන්න සිදු වෙනවා. ඒත් ඉහල රැකියාවක්  ලබා ගැනීමේ අපේක්ෂාව තවමත් ඔහුගේ සිත් තුල තිබෙනවා.කෙසේ වෙතත් ඔහුගෙ ජීවිතය වෙන අතකට හැරෙන්නෙ ශීතල වයනාඩ් කඳුකරයේ රක්ෂිත වනාන්තරයක් ආශ්‍රිත ගෝත්‍රික ජන පිරිසකගේ විරෝධතාවයක් හැසිරවීමට පොලිස් පිරිසක් සමග ගිය අවස්තාවේදී. සිය රැකියාව සහ හෘද සාක්ෂිය අතර බරපතළ ගැටුමකට මෙන්ම ජීවිතය රැක ගැනීමේ සටනකටද ඔහුට එක වර මුහුණ දෙන්න සිදු වෙනවා.",
+    subtitleBy: "BANDULA K",
+    subtitleWebsite: "baiscope.lk",
+    subtitleDownloadLink: "https://www.baiscope.lk/narivetta-2025-sinhala-subtitles/"
+}, {
+    id: 2,
     title: "RobinHood (Telugu)",
     date: "Mar 28, 2025",
     image: "https://hearandsee.com.au/wp-content/uploads/2025/03/robinhood-2157698b-1.jpg",
@@ -26,7 +37,7 @@ const movieData = [{
     subtitleWebsite: "cineru.lk",
     subtitleDownloadLink: "https://cineru.lk/robinhood-2025-sinhala-sub/"
 }, {
-    id: 2,
+    id: 3,
     title: "Bhavani Ward 1997",
     date: "Feb 7, 2025",
     image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg42ul-MN-by-tW0sgFkbOJ72PR52HdWAN2pHHBPyOtw5hUOxaerNa9HMkg3Flk4WHwMVwWjmOQ9WRqIGNyQMZnPd9u5l6ajoA8-eM16G4BgvHzRBnYS9cheykmtFDNxphcL6jhZg8QSVPS4xhbDRdPn8YFnZysvZxZIB9tjourtQMfC_6hAft2m4HeMV10/w480-h640/IMG-20240111-WA0015.jpg",
@@ -37,7 +48,7 @@ const movieData = [{
     subtitleWebsite: "cineru.lk",
     subtitleDownloadLink: "https://cineru.lk/bhavani-ward-1997-2025-sinhala-sub/"
 }, {
-    id: 3,
+    id: 4,
     title: "Pravinkoodu Shappu",
     date: "Jan 16, 2025",
     image: "https://assets.voxcinemas.com/posters/P_HO00011857.jpg",
@@ -47,9 +58,29 @@ const movieData = [{
     subtitleBy: "ඕෂද එරංග (Era Boy)",
     subtitleWebsite: "cineru.lk",
     subtitleDownloadLink: "https://cineru.lk/pravinkoodu-shappu-2025-sinhala-subtitle/"
+}, {
+    id: 5,
+    title: "Hunt",
+    date: "Aug 23, 2024",
+    image: "https://www.zonkerala.com/movies/gallery/hunt/2023-photo-hunt-malayalam-movie-9913.jpg",
+    language: "Malayalam",
+    altTitle: "Hunt (2024) - පලිගැනීමක්, මිනීමැරුමක්, ආත්මයක්",
+    description: "මේ කතාව පටන් ගන්නේ අධිකරණ වෛද්‍ය පශ්චාත් උපාධිය කරන කෙනෙක්ට තමන්ගේ විද්‍යාලයෙන් අතුරුදන් වෙච්ච ඇනිස්තිසියා ළමයෙක්ගේ ඇටසැකිලි කොටස් අහම්බෙන් හමුවෙන සිද්ධියෙන්. මේ විමර්ශනය දිගටම කරගෙන යද්දී මේ ළමයාගේ කලින් පෙම්වතාත් මේ අභිරහසට පැටලෙනකොට නඩුව තවත් සංකීර්ණ වෙනවා.",
+    subtitleBy: "ඕෂද එරංග (Era Boy)",
+    subtitleWebsite: "cineru.lk",
+    subtitleDownloadLink: "https://cineru.lk/hunt-2024-sinhala-sub/"
+}, {
+    id: 6,
+    title: "Thalavan",
+    date: "May 24, 2024",
+    image: "https://reelcinemas.com//MovieImages/HO00004062.jpg",
+    language: "Malayalam",
+    altTitle: "Thalavan (2024) - මිනිමරුමකට අහුවෙච්ච ලොක්කෙක්..",
+    description: "DYSP උදයභානු කියන්නේ විශ්‍රාම ගත්තු පොලිස් නිලධාරියෙක්. එයා තමන්ගේ වෘත්තීය ජීවිතයේ මුහුණ දුන්නු එක්තරා නඩුවක් තමයි “චෙප්පනම්තොට්ටා නඩුව” කියලා කියන්නේ. අපරාධ සම්බන්ධයෙන් යන වැඩසටහනකදී මේ ගැන එයා කියනවා.. ඒ සිද්ධිය වෙන්නේ මෙන්න මෙහෙමයි. චෙප්පනම්තොට්ටා පොලිස් ස්ථානයේ වෙනස් තනතුරු දෙකක් දරන දෙන්නෙක් ඉන්නවා. එක්කෙනෙක් කාර්තික් (පොඩ්ඩා).. අනිත් කෙනා ජයශංකර් (ලොක්කා).. මේ දෙන්නගේ ඇරියස් එක කොහොමද කිව්වොත් නාහෙට නාහන දෙන්නෙක් කියලා කිව්වොත් නිවැරදියි. මේ අතර වාරයේදී ජයශංකර්ව නොහිතපු මොහොතකදී මිනිමැරුමකට අහුවෙනවා. ඒ මිනීමැරුමේ පරික්ෂණය භාර වෙන්නේ දෙවෙනියා වෙච්ච කාර්තික්ට.",
+    subtitleBy: "ඕෂද එරංග (Era Boy)",
+    subtitleWebsite: "cineru.lk",
+    subtitleDownloadLink: "https://cineru.lk/thalavan-2024-sinhala-sub/"
 },
-
-
 ]
 
 export default movieData;
