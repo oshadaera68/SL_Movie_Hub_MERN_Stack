@@ -6,6 +6,7 @@ import NotFound from "./components/NotFound/NotFound";
 import UploadForm from "./components/UploadForm/UploadForm";
 import AboutUs from "./components/AboutUs/AboutUs";
 import MovieDetail from "./components/MovieDetails/MovieDetails";
+import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
 
 
 export default function App() {
@@ -19,7 +20,8 @@ export default function App() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/about" element={<AboutUs/>}/>
                 <Route path="*" element={<NotFound/>}/>
-                <Route path="/movie/:id" element={<MovieDetail darkMode={true} />} />
+                <Route path="/movie/:id" element={<MovieDetail darkMode={true}/>}/>
+                <Route path="/browse" element={<BrowseMovies/>}/>
             </Routes>
         </Router>
 
