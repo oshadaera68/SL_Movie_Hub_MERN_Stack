@@ -27,7 +27,7 @@ function NewMovieReleases() {
                 <IconButton onClick={() => navigate(-1)} color="inherit">
                     <ArrowBackIcon />
                 </IconButton>
-                <Typography variant="h4" fontWeight="bold">
+                <Typography variant="h4" fontWeight="bold" sx={{ color: darkMode ? 'white' : 'black' }} style={{fontFamily: 'Poppins'}}>
                     🎬 New Releases
                 </Typography>
 
