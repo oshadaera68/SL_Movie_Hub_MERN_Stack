@@ -116,7 +116,7 @@ export default function LandingPage() {
                 <section className="px-6 py-10">
                     <div className="flex justify-between items-center mb-6">
                         <h3 className="text-xl font-semibold">New Releases</h3>
-                        <Button
+                        <Link to='/seeallreleases'><Button
                             variant="contained"
                             color="error"
                             size="small"
@@ -126,7 +126,7 @@ export default function LandingPage() {
                             endIcon={<ChevronRight className="w-4 h-4"/>}
                         >
                             See All
-                        </Button>
+                        </Button></Link>
                     </div>
 
                     {/*add the loaded movies*/}
@@ -136,7 +136,7 @@ export default function LandingPage() {
 
                     <div className="flex justify-between items-center mb-6">
                         <h3 className="text-xl font-semibold">Uploaded Movies</h3>
-                        <Button
+                        <Link><Button
                             variant="contained"
                             color="error"
                             size="small"
@@ -146,7 +146,7 @@ export default function LandingPage() {
                             endIcon={<ChevronRight className="w-4 h-4"/>}
                         >
                             See All
-                        </Button>
+                        </Button></Link>
                     </div>
                 </section>
             </main>

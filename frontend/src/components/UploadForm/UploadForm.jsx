@@ -22,7 +22,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
 const languages = ["Malayalam", "Telugu", "Tamil", "English"];
-const videoCopies = ["HDRip", "WebRip", "BluRay", "DVDScr", "CAM"];
+const videoCopies = ["HDRip", "WebRip", "WEB-DL", "BluRay", "DVDScr", "CamCopy"];
 
 export default function UploadForm() {
   const [formData, setFormData] = useState({

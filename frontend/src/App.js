@@ -7,6 +7,7 @@ import UploadForm from "./components/UploadForm/UploadForm";
 import AboutUs from "./components/AboutUs/AboutUs";
 import MovieDetail from "./components/MovieDetails/MovieDetails";
 import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
+import NewMovieReleases from "./components/SeeAllPage/NewMovieReleases";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path="*" element={<NotFound/>}/>
                 <Route path="/movie/:id" element={<MovieDetail darkMode={true}/>}/>
                 <Route path="/browse" element={<BrowseMovies/>}/>
+                <Route path="/seeallreleases" element={<NewMovieReleases/>}/>
             </Routes>
         </Router>
 

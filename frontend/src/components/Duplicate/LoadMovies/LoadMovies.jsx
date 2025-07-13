@@ -1,20 +1,24 @@
 /**
- *Coded By: Era Boy
- *Version: v0.1.0
+ * Coded By: Era Boy
+ * Version: v0.2.0
  **/
-import React, {useState} from 'react';
-import MovieData from "../../../data/MovieData";
-import {Link} from "react-router-dom";
-import TextField from "@mui/material/TextField";
+import React, { useState } from 'react';
+import MovieData from '../../../data/MovieData';
+import { Link } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import { Box } from '@mui/material';
 
-function LoadMovies() {
+function LoadMovies({ darkMode = true }) {
+    const [searchTerm, setSearchTerm] = useState('');
 
-    const [darkMode, setDarkMode] = useState(true);
-    const [searchTerm, setSearchTerm] = useState("");
-    const filteredMovies = MovieData.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredMovies = MovieData.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-    return (<>
-            <div className="mb-4 max-w-sm">
+    return (
+        <Box>
+            {/* Search Input */}
+            <Box mb={3} maxWidth={400}>
                 <TextField
                     label="Search Movies"
                     variant="outlined"
@@ -22,19 +26,21 @@ function LoadMovies() {
                     fullWidth
                     onChange={(e) => setSearchTerm(e.target.value)}
                     sx={{
-                        input: {color: darkMode ? "white" : "black"},
-                        label: {color: darkMode ? "white" : "black"},
-                        "& .MuiOutlinedInput-root": {
-                            "& fieldset": {
-                                borderColor: darkMode ? "white" : "black",
-                            }, "&:hover fieldset": {
-                                borderColor: darkMode ? "red" : "gray",
+                        input: { color: darkMode ? 'white' : 'black' },
+                        label: { color: darkMode ? 'white' : 'black' },
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: darkMode ? 'white' : 'black',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: darkMode ? 'red' : 'gray',
                             },
                         },
                     }}
                 />
-            </div>
+            </Box>
 
+            {/* Movie Cards */}
             <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
                 {filteredMovies.length > 0 ? (filteredMovies.map((movie, index) => {
                     const movieIndex = MovieData.findIndex((m) => m.title === movie.title); // Get real index from original array
@@ -56,7 +62,8 @@ function LoadMovies() {
                     </Link>);
                 })) : (<p>No movies found.</p>)}
             </div>
-        </>);
+        </Box>
+    );
 }
 
 export default LoadMovies;
