@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
@@ -22,6 +22,7 @@ export default function LandingPage() {
 
     const handleOpenLangs = (e) => setAnchorElLangs(e.currentTarget);
     const handleCloseLangs = () => setAnchorElLangs(null);
+    const scrollContainerRef = useRef(null);
 
     return (<div
         className={`min-h-screen flex flex-col justify-between ${darkMode ? "bg-black text-white" : "bg-white text-black"}`}>
@@ -45,6 +46,7 @@ export default function LandingPage() {
                         <MenuItem onClick={handleCloseGenres}>Action</MenuItem>
                         <MenuItem onClick={handleCloseGenres}>Thriller</MenuItem>
                         <MenuItem onClick={handleCloseGenres}>Horror</MenuItem>
+                        <MenuItem onClick={handleCloseGenres}>Drama</MenuItem>
                     </Menu>
                 </li>
                 <li>
@@ -59,6 +61,8 @@ export default function LandingPage() {
                     <Menu anchorEl={anchorElLangs} open={openLangs} onClose={handleCloseLangs}>
                         <MenuItem onClick={handleCloseLangs}>Malayalam</MenuItem>
                         <MenuItem onClick={handleCloseLangs}>Telugu</MenuItem>
+                        <MenuItem onClick={handleCloseLangs}>Kannada</MenuItem>
+                        <MenuItem onClick={handleCloseLangs}>Tamil</MenuItem>
                     </Menu>
                 </li>
                 <Link to="/about">

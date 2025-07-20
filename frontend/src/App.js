@@ -8,6 +8,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import MovieDetail from "./components/MovieDetails/MovieDetails";
 import BrowseMovies from "./components/BrowseMovies/BrowseMovies";
 import NewMovieReleases from "./components/SeeAllPage/NewMovieReleases";
+import SubtitleCountdown from "./components/Countdown/SubtitleCountdown";
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
                 <Route path="/movie/:id" element={<MovieDetail darkMode={true}/>}/>
                 <Route path="/browse" element={<BrowseMovies/>}/>
                 <Route path="/seeallreleases" element={<NewMovieReleases/>}/>
+                <Route path="/countdown" element={<SubtitleCountdown />} />
             </Routes>
         </Router>
 

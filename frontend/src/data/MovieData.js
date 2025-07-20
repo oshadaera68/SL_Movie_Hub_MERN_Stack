@@ -80,7 +80,7 @@ const movieData = [{
     subtitleBy: "ඕෂද එරංග (Era Boy)",
     subtitleWebsite: "https://cineru.lk/",
     subtitleDownloadLink: "https://cineru.lk/bhavani-ward-1997-2025-sinhala-sub/",
-    tags: ["WEB-DL", "Malayalam"]
+    tags: ["WEB-DL", "Telugu"]
 }, {
     id: 6,
     title: "Pravinkoodu Shappu",
@@ -146,8 +146,31 @@ const movieData = [{
     subtitleWebsite: "https://cineru.lk/",
     subtitleDownloadLink: "https://cineru.lk/devil-the-british-secret-agent-2023-sinhala-sub/",
     tags: ["WEB-DL", "Telugu"]
-}, {
+},{
     id: 11,
+    title: "Vazhiye",
+    date: "June 11, 2022",
+    image: "https://filmfreeway-production-storage-01-connector.filmfreeway.com/press_kits/posters/001/805/604/thumb/dc4057591f-poster.jpg?1619701001",
+    language: "Malayalam",
+    videoCopy: "HDRip / WEB-DL",
+    altTitle: "Vazhiye (2022) - අද්භූත භුමියේ අභිරහස",
+    description: "ඇල්බින් කියන්නේ යූටියුබර් කෙනෙක්. මෙයාගේ පෙම්වතිය තමයි රීමා. ඉතින් මේ දෙන්නා කසාරගෝඩ් වල තියෙන එක කැලේකට යනවා. හැබැයි යන්නේ එහේ තියෙනවා කියලා සැලකෙන අද්භුත බිමක් ගවේෂණය කරන්න.. ඒ යන්නෙත් ඊට පස්සේ හවස් වෙන්න කලින් එන්න හිතාගෙන. ඒත් ඒක නවතින්නෙත් නොහිතු මොහොතක.\n" +
+        "\n" +
+        "සරන් කියන්නේ ඇල්බින් වගේම යූටියුබර් කෙනෙක්. එයත් මේ කැලේට එන්නේ අර ඇල්බින් – රීමා දෙන්නාගේ ගමනමයි. හැබැයි මේ සරන් එයාගේ තව යාලුවෙක් එක්කමයි එයාලගේ චැනල් එක කරන්නේ. මේ දෙන්නට අර ඇල්බින් – රීමා ජෝඩුව මුණ ගැහෙනවා. ඒ හමුවෙන්නෙත් අර දෙන්නගේ උගුලේ ප්‍රතිපලයක් විදිහට.\n" +
+        "\n" +
+        "හැබැයි මේ දෙගොල්ලොන්ටම ලොකු අකරතැබ්බයකට මුහුණ දෙන්න සිදුවෙනවා.\n" +
+        "\n" +
+        "මොකක්ද මේ වෙන්නේ?\n" +
+        "ඇයි එයාලට එහෙම දේකට මුහුණ දෙන්න වෙන්නේ?\n" +
+        "සරන්ගෙයි යාලුවාගෙයි රීමාට අටවපු උගුල මොකක්ද?\n" +
+        "අවසානය කුමකින් කුමක් වෙයිද?",
+    subtitleBy: "ඕෂද එරංග (Era Boy)",
+    subtitleWebsite: "https://cineru.lk/",
+    subtitleDownloadLink: "https://cineru.lk/vazhiye-2022-sinhala-sub/",
+    tags: ["WEB-DL", "Malayalam"]
+},
+    {
+    id: 12,
     title: "The Priest",
     date: "Mar 11, 2021",
     image: "https://static.toiimg.com/thumb/msid-81089910,imgsize-87390,width-400,resizemode-4/81089910.jpg",

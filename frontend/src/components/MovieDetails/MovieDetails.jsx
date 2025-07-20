@@ -102,9 +102,9 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                     <Button
                         variant="contained"
                         color="error"
-                        href={movie.subtitleDownloadLink || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        onClick={() =>
+                            navigate(`/countdown?link=${encodeURIComponent(movie.subtitleDownloadLink)}`)
+                        }
                         sx={{
                             borderRadius: "999px",
                             textTransform: "none",
@@ -114,6 +114,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                     >
                         Download Subtitle
                     </Button>
+
                 </div>
             </div>
         </div>
