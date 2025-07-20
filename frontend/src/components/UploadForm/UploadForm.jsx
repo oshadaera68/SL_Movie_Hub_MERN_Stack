@@ -1,6 +1,6 @@
 /**
  * Coded By: Era Boy
- * Version: v0.2.0
+ * Version: v0.2.1
  **/
 import React, { useState } from "react";
 import {
@@ -10,12 +10,14 @@ import {
   Typography,
   Paper,
   Grid,
-  useTheme,
-  createTheme,
   ThemeProvider,
+  createTheme,
   Box,
   Divider,
+  IconButton,
 } from "@mui/material";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -107,7 +109,7 @@ export default function UploadForm() {
       console.log("Submitted Data:", formData);
       alert("Movie submitted successfully!");
 
-      // Reset form after submission
+      // Reset the form
       setFormData({
         title: "",
         date: dayjs(),
@@ -150,19 +152,15 @@ export default function UploadForm() {
                 bgcolor: darkMode ? "#1e1e1e" : "#fff",
               }}
           >
-            <Typography variant="h5" gutterBottom>
-              Upload a New Movie
-            </Typography>
-
-            <Button
-                onClick={() => setDarkMode(!darkMode)}
-                sx={{ mb: 3, textTransform: "uppercase", fontWeight: "bold" }}
-            >
-              Toggle {darkMode ? "Light" : "Dark"} Mode
-            </Button>
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Typography variant="h5">Upload a New Movie</Typography>
+              <IconButton onClick={() => setDarkMode(!darkMode)} color="inherit">
+                {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            </Box>
 
             <form onSubmit={handleSubmit}>
-              <Grid container spacing={3}>
+              <Grid container spacing={3} mt={1}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                       label="Movie Title"
