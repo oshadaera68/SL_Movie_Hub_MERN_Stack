@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
@@ -22,7 +22,6 @@ export default function LandingPage() {
 
     const handleOpenLangs = (e) => setAnchorElLangs(e.currentTarget);
     const handleCloseLangs = () => setAnchorElLangs(null);
-    const scrollContainerRef = useRef(null);
 
     return (<div
         className={`min-h-screen flex flex-col justify-between ${darkMode ? "bg-black text-white" : "bg-white text-black"}`}>
