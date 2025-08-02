@@ -24,6 +24,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import axios from "axios";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -74,21 +75,22 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, identifier, password, role } = formData;
+    // const { name, identifier, password, role } = formData;
 
-    if (!name || !identifier || !password || !role) {
-      setSnackbar({ open: true, message: "Please fill in all fields." });
-      return;
-    }
+    // if (!name || !identifier || !password || !role) {
+    //   setSnackbar({ open: true, message: "Please fill in all fields." });
+    //   return;
+    // }
 
-    if (!isValidIdentifier(identifier)) {
-      setSnackbar({ open: true, message: "Enter a valid email or username." });
-      return;
-    }
+    // if (!isValidIdentifier(identifier)) {
+    //   setSnackbar({ open: true, message: "Enter a valid email or username." });
+    //   return;
+    // }
 
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // await new Promise((resolve) => setTimeout(resolve, 1000));
+      await axios.post("http://localhost:4000/signup/new-user", formData);
       navigate("/login");
     } catch (err) {
       setSnackbar({ open: true, message: "Registration failed." });

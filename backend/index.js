@@ -5,6 +5,7 @@
 
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -20,7 +21,28 @@ mongoose.connect(process.env.MONGO_URI, {
     console.error("MongoDB connection error:", err);
 });
 
-app.use(express.json());
+const movie = require("./routes/movie");
+const signUp = require("./routes/signup");
+const signIn = require("./routes/signin");
+
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+};
+
+app.use(cors(corsOptions));
+
+// routes
+app.use("/movie", movie);
+app.use("/signup", signUp);
+app.use("/signin", signIn);
 
 app.listen(port, () => {
     console.log(`Task application listening on port ${port}`);

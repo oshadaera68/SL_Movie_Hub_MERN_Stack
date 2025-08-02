@@ -22,8 +22,9 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
+import axios from "axios";
 
-const languages = ["Malayalam", "Telugu", "Tamil", "English"];
+const languages = ["Malayalam", "Telugu", "Tamil", "Hindi"];
 const videoCopies = ["HDRip", "WebRip", "WEB-DL", "BluRay", "DVDScr", "CamCopy"];
 
 export default function UploadForm() {
@@ -103,10 +104,10 @@ export default function UploadForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Submitted Data:", formData);
+      await axios.post("http://localhost:4000/movie/new-movie", formData);
       alert("Movie submitted successfully!");
 
       // Reset the form

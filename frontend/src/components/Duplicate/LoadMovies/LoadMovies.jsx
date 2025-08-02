@@ -44,7 +44,7 @@ function LoadMovies({darkMode}) {
                     ref={scrollContainerRef}
                     className="grid grid-cols-10 gap-4"
                 >
-                    {visibleMovies.map((movie, index) => {
+                    {filteredMovies.map((movie, index) => {
                         const movieIndex = MovieData.findIndex((m) => m.title === movie.title);
                         return (<Link key={index} to={`/movie/${movieIndex}`} className="no-underline">
                                 <div
