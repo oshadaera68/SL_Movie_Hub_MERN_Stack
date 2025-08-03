@@ -1,25 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import MovieData from "../../data/MovieData";
+import axios from "axios";
 
 export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
     const { id } = useParams();
     const navigate = useNavigate();
-    const movie = MovieData[parseInt(id)];
+
+    const [movies, setMovies] = useState([]);
     const [darkMode, setDarkMode] = useState(defaultDarkMode);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+            try {
+                const res = await axios.get('http://localhost:4000/movie');
+                setMovies(res.data);
+            } catch (error) {
+                console.error("Error fetching movies:", error.response?.data || error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchMovies();
+    }, []);
+
+    const movie = movies[parseInt(id)];
+
+    if (loading) {
+        return (
+            <div className={`text-center py-20 ${darkMode ? "bg-black text-white" : "bg-white text-black"}`}>
+                <h2 className="text-xl">Loading movie...</h2>
+            </div>
+        );
+    }
 
     if (!movie) {
         return (
-            <div
-                className={`text-center py-20 ${
-                    darkMode ? "bg-black text-white" : "bg-white text-black"
-                }`}
-            >
+            <div className={`text-center py-20 ${darkMode ? "bg-black text-white" : "bg-white text-black"}`}>
                 <h2 className="text-2xl font-semibold">Movie not found</h2>
                 <p>Please go back and try again.</p>
                 <Button
@@ -34,11 +57,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
     }
 
     return (
-        <div
-            className={`${
-                darkMode ? "bg-zinc-900 text-white" : "bg-white text-black"
-            } min-h-screen py-10 px-4 md:px-10`}
-        >
+        <div className={`${darkMode ? "bg-zinc-900 text-white" : "bg-white text-black"} min-h-screen py-10 px-4 md:px-10`}>
             {/* Top Controls */}
             <div className="flex justify-between items-center mb-6">
                 <IconButton onClick={() => navigate(-1)} color="inherit">
@@ -67,8 +86,9 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                         <span className="text-red-500">සිංහල උපසිරැසි සහිතව</span>
                     </h1>
                     <p className="text-sm text-gray-500 mb-2">Video Copy: {movie.videoCopy}</p>
-
-                    <p className="text-sm text-gray-500 mb-2">Language: {movie.language || "Unknown"}</p>
+                    <p className="text-sm text-gray-500 mb-2">
+                        Language: {Array.isArray(movie.language) ? movie.language.join(", ") : movie.language || "Unknown"}
+                    </p>
 
                     {movie.altTitle && (
                         <h2 className="text-lg italic mb-4 text-gray-300">{movie.altTitle}</h2>
@@ -80,7 +100,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
 
                     <div className="mb-4">
                         <p className="font-semibold">Subtitle By:</p>
-                        <p className="text-sm text-gray-300">{movie.subtitleBy || "Unknown"}</p>
+                        <p className="text-sm text-gray-300">{movie.subtitledBy || "Unknown"}</p>
                     </div>
 
                     <div className="mb-6">
@@ -92,7 +112,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                                 rel="noopener noreferrer"
                                 className="text-red-500 hover:underline break-all"
                             >
-                                {movie.subtitleWebsite || "Unknown"}
+                                {movie.subtitleWebsite}
                             </a>
                         ) : (
                             <p className="text-gray-400">Not provided</p>
@@ -114,7 +134,6 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                     >
                         Download Subtitle
                     </Button>
-
                 </div>
             </div>
         </div>

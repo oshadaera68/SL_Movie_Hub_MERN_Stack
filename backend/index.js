@@ -22,8 +22,6 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 const movie = require("./routes/movie");
-const signUp = require("./routes/signup");
-const signIn = require("./routes/signin");
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
 
@@ -41,8 +39,6 @@ app.use(cors(corsOptions));
 
 // routes
 app.use("/movie", movie);
-app.use("/signup", signUp);
-app.use("/signin", signIn);
 
 app.listen(port, () => {
     console.log(`Task application listening on port ${port}`);
