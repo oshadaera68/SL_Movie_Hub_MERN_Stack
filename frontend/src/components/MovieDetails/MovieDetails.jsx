@@ -73,7 +73,7 @@ export default function MovieDetail({ darkMode: defaultDarkMode = true }) {
                 {/* Poster */}
                 <div className="w-full md:w-1/3">
                     <img
-                        src={movie.image}
+                        src={movie.imageURL}
                         alt={movie.title}
                         className="rounded-xl shadow-lg w-full object-cover"
                     />

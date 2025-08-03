@@ -24,7 +24,7 @@ import {LocalizationProvider} from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import axios from "axios";
 
-const languages = ["Malayalam", "Telugu", "Tamil", "Hindi", "English"];
+const languages = ["Malayalam", "Telugu", "Tamil", "Hindi", "English", "Korean"];
 const videoCopies = ["HDRip", "WebRip", "WEB-DL", "BluRay", "DVDScr", "CamCopy", "HDTV"];
 
 export default function UploadForm() {

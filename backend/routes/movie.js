@@ -1,13 +1,14 @@
 const route = require("express").Router();
 const Movie = require("../model/movie.model");
 
+
 route.get('/', async (req, res, next) => {
     try {
         const tasks = await Movie.find(); // No filter
         res.json(tasks);
     } catch (err) {
         next(err);
-    }
+       }
 });
 
 route.post("/new-movie", async (req, res, next) => {
