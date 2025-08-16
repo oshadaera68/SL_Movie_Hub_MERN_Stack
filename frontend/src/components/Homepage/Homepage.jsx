@@ -138,7 +138,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Display uploaded movies preview */}
-                    <UploadedMovies darkMode={darkMode} />
+                    <UploadedMovies darkMode={darkMode} previewMode={true} />
                 </section>
             </main>
 
